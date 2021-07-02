@@ -25,7 +25,7 @@ def main(args: List[AnyStr]) -> None:
 
         repo.refresh()
 
-        os.system(f"git clone --depth=1 {repo.git_url}")
+        os.system(f"git clone --depth=1 {repo.ssh_url}")
         if g.ratelimit_remaining <= 1:
             sleep(repo_iter.last_response.headers["X-RateLimit-Reset"] - time())
 
